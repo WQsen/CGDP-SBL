@@ -197,9 +197,9 @@ for i=1:length(source_id)
               ar=ar+1; 
               aa=exp(1j*pi*[0:M-1]'*sin(agr*pi/180)); 
               qk=aa'*qs*aa;zk=aa'*sigma_yk_inv*aa;
-                source_power_rere(i,ar)= ( -xi(source_id(i))^2/2-L*zk+sqrt( ((xi(source_id(i))^2/2+L*zk))^2-xi(source_id(i))^2*(xi(source_id(i))^2/4+L*zk-qk)) )/(xi(source_id(i))^2/2*zk);    % eq.(29) ,source_power
-                theta_r1(i,ar)= real( -L*log( ( 1+( source_power_rere(i,ar))*zk))+( qk)/( ( source_power_rere(i,ar))^(-1)+ zk )...
-               -xi(source_id(i))^2/4*(source_power_rere(i,ar)));  
+              source_power_rere(i,ar)= ( -xi(source_id(i))^2/2-L*zk+sqrt( ((xi(source_id(i))^2/2+L*zk))^2-xi(source_id(i))^2*(xi(source_id(i))^2/4+L*zk-qk)) )/(xi(source_id(i))^2/2*zk); % eq£¨20£©
+              theta_r1(i,ar)= real( -L*log( ( 1+( source_power_rere(i,ar))*zk))+( qk)/( ( source_power_rere(i,ar))^(-1)+ zk )...
+              -xi(source_id(i))^2/4*(source_power_rere(i,ar)));  
              end
       [agr_max(i)]=find((theta_r1(i,:))==max(theta_r1(i,:)));   
       Azimuth_refine(i,:)= Azimuth(source_id(i))-grid_interval:r_step:Azimuth(source_id(i));
